@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html th:replace="~{base :: template (~{::main})}">
+<body>
+    <main>
+        <h1>Lista de Diaristas</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Estado</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="diarista : ${diaristas}">
+                    <td th:text="${diarista.id}"></td>
+                    <td th:text="${diarista.nomeCompleto}"></td>
+                    <td th:text="${diarista.email}"></td>
+                    <td th:text="${diarista.estado}"></td>
+                    <td>
+                        <a  class="btn btn-sm btn-primary" 
+                            th:href="@{/admin/diaristas/{id}/editar (id=${diarista.id})}" >Atualizar</a>
+                        <a class="btn btn-sm btn-danger" 
+                            th:href="@{/admin/diaristas/{id}/excluir (id=${diarista.id})}" 
+                            onclick="return confirm('Deseja realmente apagar a diarista?')">Apagar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-sm btn-success" th:href="@{/admin/diaristas/cadastrar}">Nova Diarista</a>
+
+    </main>
+</body>
+</html>
