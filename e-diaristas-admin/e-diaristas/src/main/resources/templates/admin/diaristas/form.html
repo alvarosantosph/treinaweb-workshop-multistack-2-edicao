@@ -93,13 +93,6 @@
                 <li th:each="erro : ${#fields.errors('cidade')}" th:text="${erro}" style="color: red; font-size: 0.8rem;"></li>
             </ul>
         </div>
-            <div class="mb-3">
-            <label class="form-label" for="codigoIbge">Código IBGE</label>
-            <input class="form-control" type="text" th:field="*{codigoIbge}">
-            <ul style="list-style-type: none; margin-left: -28px;">
-                <li th:each="erro : ${#fields.errors('codigoIbge')}" th:text="${erro}" style="color: red; font-size: 0.8rem;"></li>
-            </ul>
-        </div>
 
         <div class="mb-3">
             <label class="form-label" for="imagem"></label>
